@@ -140,6 +140,28 @@ export const constantRouterMap = [
       }
     ]
   },
+  // 基础设置
+  {
+    path: '/basicSetting',
+    component: Layout,
+    // redirect: '/example/table',
+    name: 'BasicSetting',
+    meta: { title: '基础设置', icon: 'example' },
+    children: [
+      {
+        path: 'varietyManage',
+        name: 'VarietyManage',
+        component: () => import('@/views/basicSetting/varietyManage'),
+        meta: { title: '品种管理', icon: 'example' }
+      },
+      {
+        path: 'varietyManage2',
+        name: 'varietyManage2',
+        component: () => import('@/views/basicSetting/varietyManage'),
+        meta: { title: '品种管理', icon: 'example' }
+      }
+    ]
+  },
 
   { path: '*', redirect: '/404', hidden: true }
 ]
