@@ -44,6 +44,19 @@
         </template>
       </el-table-column>
     </el-table>
+    <!-- 分页 -->
+    <div class="source">
+      <el-pagination
+        background
+        @size-change="sizeChange"
+        @current-change="getList"
+        :current-page.sync="pageNumber"
+        :page-sizes="[10, 20, 30, 40]"
+        :page-size="pageSize"
+        layout="total, sizes, prev, pager, next"
+        :total="total">
+      </el-pagination>
+    </div>
   </div>
 </template>
 <script>
@@ -56,11 +69,25 @@ export default {
         name: '白鸡蛋',
         creatTime: '2015-05-05 22:12:12',
         creatName: '张三'
-      }]
+      }],
+      // 分页相关
+      pageNumber: 1,
+      pageSize: 10,
+      total: 100
     }
   },
   methods: {
-    handleSelectionChange() {}
+    // 选中改变时
+    handleSelectionChange() {
+      console.log(123)
+    },
+    sizeChange(val) {
+      this.pageSize = val
+      console.log('每页条数', this.pageSize)
+    },
+    getList() {
+      console.log(this.pageNumber, this.pageSize, this.total)
+    }
   }
 }
 </script>

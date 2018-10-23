@@ -1,7 +1,8 @@
 <template>
   <div class="dashboard-container">
-    <div class="dashboard-text">name:{{ name }}</div>
-    <div class="dashboard-text">roles:<span v-for="role in roles" :key="role">{{ role }}</span></div>
+    <!-- <div class="dashboard-text">name:{{ name }}</div>
+    <div class="dashboard-text">roles:<span v-for="role in roles" :key="role">{{ role }}</span></div> -->
+    <div>欢迎进入后台管理系统</div>
   </div>
 </template>
 

@@ -33,6 +33,7 @@ export const constantRouterMap = [
     hidden: true,
     children: [{
       path: 'dashboard',
+      meta: { title: '首页', icon: 'example' },
       component: () => import('@/views/dashboard/index')
     }]
   },
@@ -67,7 +68,7 @@ export const constantRouterMap = [
         path: 'index',
         name: 'Form',
         component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
+        meta: { title: '表单', icon: 'form' }
       }
     ]
   },
@@ -155,10 +156,10 @@ export const constantRouterMap = [
         meta: { title: '品种管理', icon: 'example' }
       },
       {
-        path: 'varietyManage2',
-        name: 'varietyManage2',
-        component: () => import('@/views/basicSetting/varietyManage'),
-        meta: { title: '品种管理', icon: 'example' }
+        path: 'phoneBind',
+        name: 'PhoneBind',
+        component: () => import('@/views/basicSetting/phoneBind'),
+        meta: { title: '设备绑定', icon: 'example' }
       }
     ]
   },

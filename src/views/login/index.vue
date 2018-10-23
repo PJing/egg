@@ -25,12 +25,12 @@
       </el-form-item>
       <el-form-item>
         <el-button :loading="loading" type="primary" style="width:100%;" @click.native.prevent="handleLogin">
-          Sign in
+          登录
         </el-button>
       </el-form-item>
       <div class="tips">
-        <span style="margin-right:20px;">username: admin</span>
-        <span> password: admin</span>
+        <span style="margin-right:20px;">用户名: admin</span>
+        <span> 密码: admin</span>
       </div>
     </el-form>
   </div>
@@ -87,6 +87,7 @@ export default {
       }
     },
     handleLogin() {
+      
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true
