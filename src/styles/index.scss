@@ -79,3 +79,11 @@ a:hover {
 .source{
   padding: 24px 0;
 }
+.pull_right{
+  float: right;
+}
+.clear::after{
+  content: "";
+  display: block;
+  clear: both;
+}

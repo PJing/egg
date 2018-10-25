@@ -160,6 +160,19 @@ export const constantRouterMap = [
         name: 'PhoneBind',
         component: () => import('@/views/basicSetting/phoneBind'),
         meta: { title: '设备绑定', icon: 'example' }
+      },
+      {
+        path: 'specManage',
+        name: 'SpecManage',
+        component: () => import('@/views/basicSetting/specManage'),
+        meta: { title: '规格管理', icon: 'example' }
+      },
+      {
+        path: 'specDetail',
+        name: 'SpecDetail',
+        hidden: true,
+        component: () => import('@/views/basicSetting/template/specDetail'),
+        meta: { title: '规格设置', icon: 'example' }
       }
     ]
   },
