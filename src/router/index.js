@@ -141,6 +141,27 @@ export const constantRouterMap = [
       }
     ]
   },
+  // 商机
+  {
+    path: '/business',
+    component: Layout,
+    name: 'Business',
+    meta: { title: '商机', icon: 'example' },
+    children: [
+      {
+        path: 'businessDown',
+        name: 'BusinessDown',
+        component: () => import('@/views/business/businessDown'),
+        meta: { title: '下游合作商', icon: 'example' }
+      },
+      {
+        path: 'businessUpper',
+        name: 'BusinessUpper',
+        component: () => import('@/views/business/BusinessUpper'),
+        meta: { title: '上游合作商', icon: 'example' }
+      }
+    ]
+  },
   // 基础设置
   {
     path: '/basicSetting',
@@ -173,6 +194,34 @@ export const constantRouterMap = [
         hidden: true,
         component: () => import('@/views/basicSetting/template/specDetail'),
         meta: { title: '规格设置', icon: 'example' }
+      },
+      {
+        path: 'addSpec',
+        name: 'AddSpec',
+        hidden: true,
+        component: () => import('@/views/basicSetting/template/addSpec'),
+        meta: { title: '规格设置', icon: 'example' }
+      }
+    ]
+  },
+  // 员工管理
+  {
+    path: '/staffManage',
+    component: Layout,
+    name:'StaffManage',
+    meta: { title: '员工管理', icon: 'example' },
+    children: [
+      {
+        path: 'staffSearch',
+        name: 'StaffSearch',
+        component: () => import('@/views/staffManage/staffSearch'),
+        meta: { title: '员工工作量', icon: 'example' }
+      },
+      {
+        path: 'staffList',
+        name: 'StaffList',
+        component: () => import('@/views/staffManage/staffList'),
+        meta: { title: '员工名单', icon: 'example' }
       }
     ]
   },

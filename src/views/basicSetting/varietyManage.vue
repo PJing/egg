@@ -8,8 +8,10 @@
         v-model="searchTxt">
         </el-input>
         <el-button>搜索</el-button>
-        <el-button type="primary">新增</el-button>
-        <el-button type="danger">删除</el-button>
+        <div class="pull-right">
+          <el-button type="primary" @click="dialogVisible = true">新增</el-button>
+          <el-button type="danger">删除</el-button>
+        </div>
     </el-row>
       <!-- 表格 -->
     <div class="app-container"></div>
@@ -57,6 +59,18 @@
         :total="total">
       </el-pagination>
     </div>
+    <!-- 弹窗 -->
+    <el-dialog
+      title="品种名称"
+      :visible.sync="dialogVisible"
+      width="30%"
+      :before-close="handleClose">
+      <span><el-input type="text" placeholder="请输入品种名称"></el-input></span>
+      <span slot="footer" class="dialog-footer">
+        <el-button type="primary" @click="dialogVisible = false">取 消</el-button>
+        <el-button type="danger" @click="dialogVisible = false">保存</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 <script>
@@ -73,7 +87,8 @@ export default {
       // 分页相关
       pageNumber: 1,
       pageSize: 10,
-      total: 100
+      total: 100,
+      dialogVisible: false
     }
   },
   methods: {
