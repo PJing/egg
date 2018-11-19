@@ -63,8 +63,7 @@
     <el-dialog
       title="品种名称"
       :visible.sync="dialogVisible"
-      width="30%"
-      :before-close="handleClose">
+      width="30%">
       <span><el-input type="text" placeholder="请输入品种名称"></el-input></span>
       <span slot="footer" class="dialog-footer">
         <el-button type="primary" @click="dialogVisible = false">取 消</el-button>
@@ -88,7 +87,6 @@ export default {
       pageNumber: 1,
       pageSize: 10,
       total: 100,
-      dialogVisible: false
     }
   },
   methods: {

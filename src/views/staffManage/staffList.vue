@@ -47,6 +47,19 @@
             </el-table-column>
         </el-table> 
         </div>
+         <!-- 分页 -->
+        <div class="source">
+        <el-pagination
+            background
+            @size-change="sizeChange"
+            @current-change="getList"
+            :current-page.sync="pageNumber"
+            :page-sizes="[10, 20, 30, 40]"
+            :page-size="pageSize"
+            layout="total, sizes, prev, pager, next"
+            :total="total">
+        </el-pagination>
+        </div>
     </div>
 </template>
 <script>
@@ -80,7 +93,11 @@ export default {
                     label: '已离职'
                 }
             ],
-            value: '1'
+            value: '1',
+            // 分页相关
+            pageNumber: 1,
+            pageSize: 10,
+            total: 100,
         }
     },
     methods: {

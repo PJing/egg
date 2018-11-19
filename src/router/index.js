@@ -141,6 +141,64 @@ export const constantRouterMap = [
       }
     ]
   },
+  {
+    path: '/disburden',
+    component: Layout,
+    name: 'Disburden',
+    meta: { title: '卸货模块', icon: 'example' },
+    children: [
+      {
+        path: 'disburdenStart',
+        name: 'DisburdenStart',
+        component: () => import('@/views/disburden/disburdenStart'),
+        meta: { title: '开始卸货', icon: 'example' }
+      }
+    ]
+  },
+  // 财务账单
+  {
+    path: '/finance',
+    component: Layout,
+    name: 'Finance',
+    meta: { title: '财务账单', icon: 'example' },
+    children: [
+      {
+        path: 'financeList',
+        name: 'FinanceList',
+        component: () => import('@/views/finance/financeList'),
+        meta: { title: '财务账单', icon: 'example' }
+      }
+    ]
+  },
+  // 仓库管理
+  {
+    path: '/stock',
+    component: Layout,
+    name: 'Stock',
+    meta: { title: '仓库管理', icon: 'example' },
+    children: [
+      {
+        path: 'classify',
+        name: 'Classify',
+        component: () => import('@/views/stock/classify'),
+        meta: { title: '仓库面板', icon: 'example' }
+      },
+      {
+        path: 'classifyList',
+        name: 'ClassifyList',
+        hidden: true,
+        component: () => import('@/views/stock/classifyList'),
+        meta: { title: '仓库面板', icon: 'example' }
+      },
+      {
+        path: 'classifyDetail',
+        name: 'ClassifyDetail',
+        hidden: true,
+        component: () => import('@/views/stock/classifyDetail'),
+        meta: { title: '仓库面板', icon: 'example' }
+      }
+    ]
+  },
   // 商机
   {
     path: '/business',

@@ -73,6 +73,19 @@
                 </el-table-column>
             </el-table> 
         </div>
+         <!-- 分页 -->
+        <div class="source">
+        <el-pagination
+            background
+            @size-change="sizeChange"
+            @current-change="getList"
+            :current-page.sync="pageNumber"
+            :page-sizes="[10, 20, 30, 40]"
+            :page-size="pageSize"
+            layout="total, sizes, prev, pager, next"
+            :total="total">
+        </el-pagination>
+        </div>
         <!-- 新增弹框 -->
         <el-dialog
             title="提示"
@@ -145,7 +158,11 @@ export default {
             dialogVisible: false,
             form: {
 
-            }
+            },
+            // 分页相关
+            pageNumber: 1,
+            pageSize: 10,
+            total: 100,
         }
     },
     methods: {

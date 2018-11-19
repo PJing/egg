@@ -36,6 +36,19 @@
                 <template slot-scope="scope">{{ scope.row.num3 }}</template>
                 </el-table-column>
             </el-table> 
+             <!-- 分页 -->
+            <div class="source">
+                <el-pagination
+                    background
+                    @size-change="sizeChange"
+                    @current-change="getList"
+                    :current-page.sync="pageNumber"
+                    :page-sizes="[10, 20, 30, 40]"
+                    :page-size="pageSize"
+                    layout="total, sizes, prev, pager, next"
+                    :total="total">
+                </el-pagination>
+            </div>
     </div>
 </template>
 <script>
@@ -55,6 +68,10 @@ export default {
                     num3: '123'
                 }
             ],
+            // 分页相关
+            pageNumber: 1,
+            pageSize: 10,
+            total: 100,
         }
     },
     methods: {
