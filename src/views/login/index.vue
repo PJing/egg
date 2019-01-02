@@ -43,7 +43,8 @@ export default {
   name: 'Login',
   data() {
     const validateUsername = (rule, value, callback) => {
-      if (!isvalidUsername(value)) {
+      // if (!isvalidUsername(value)) {
+      if (value === "") {
         callback(new Error('请输入正确的用户名'))
       } else {
         callback()
@@ -58,8 +59,8 @@ export default {
     }
     return {
       loginForm: {
-        username: 'admin',
-        password: 'admin'
+        username: '张三',
+        password: '123456'
       },
       loginRules: {
         username: [{ required: true, trigger: 'blur', validator: validateUsername }],
@@ -90,17 +91,33 @@ export default {
       
       this.$refs.loginForm.validate(valid => {
         if (valid) {
-          this.loading = true
-          this.$store.dispatch('Login', this.loginForm).then(() => {
-            this.loading = false
-            this.$router.push({ path: this.redirect || '/' })
-          }).catch(() => {
-            this.loading = false
-          })
+          this.login()
+          // this.$store.dispatch('Login', this.loginForm).then(() => {
+          //   this.loading = false
+          //   this.$router.push({ path: this.redirect || '/' })
+          // }).catch(() => {
+          //   this.loading = false
+          // })
         } else {
           console.log('error submit!!')
           return false
         }
+      })
+    },
+    login() {
+			this.$router.push({ path: this.redirect || '/' })
+			console.log(this.$router)
+      this.loading = true
+      let str = {
+        strUserName: this.loginForm.username,
+        passWord: this.loginForm.password
+      }
+      console.log(str)
+      this.$post('checklogin', str).then(res => {
+        console.log('登陆状态', res.data)
+				this.$store.commit('SET_TOKEN', '12312312312')
+        this.loading = false
+        this.$router.push({ path: '/dashboard' })
       })
     }
   }

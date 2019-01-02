@@ -15,6 +15,30 @@ import store from './store'
 import '@/icons' // icon
 import '@/permission' // permission control
 
+// axios
+import axios from 'axios'
+import api from './api/api.js'
+axios.defaults.baseURL = "/api"
+// Vue.prototype.HOST = '/api'
+// axios.defaults.headers.post['content-Type'] = 'application/json;charset=UTF-8';
+export const httpPost = (urlKey, params) => axios({
+  url: api[urlKey],
+  method: 'post',
+  data: {
+      ...params
+  }
+})
+export const httpGet = (urlKey, params) => axios({
+  url: api[urlKey],
+  method: 'get',
+  params: {
+      ...params
+  }
+})
+Vue.prototype.$http = axios;
+Vue.prototype.$post = httpPost;
+Vue.prototype.$get = httpGet;
+
 // Vue.use(ElementUI, { locale })
 Vue.use(ElementUI)
 
