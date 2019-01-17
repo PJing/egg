@@ -41,7 +41,7 @@
       <el-table-column
         label="操作">
         <template slot-scope="scope">
-          <el-button size="mini" type="primary">编辑</el-button>
+          <el-button size="mini" type="primary" @click="edit(scope)">编辑</el-button>
           <el-button size="mini" type="danger" @click="showTip(scope.id)">删除</el-button>
         </template>
       </el-table-column>
@@ -129,7 +129,7 @@ export default {
 		// 查询鸡蛋列表
 		listeggtype() {
 			let str = {
-					// "strEggtypeName": "",
+					"strEggtypeName": null,
 					"currentPage": "1",
 					"pageSize": "10"
 			}
@@ -213,6 +213,10 @@ export default {
 						});
 					}
 			})
+		},
+		// 修改
+		edit(id){
+			this.dialogVisible = true
 		}
   }
 }
